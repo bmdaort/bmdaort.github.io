@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% include head.html %}
+</head>
+<body>
+  <button class="topbar__menu" type="button" aria-label="Open menu" data-sidebar-open>☰</button>
+
+  <div class="app">
+    {% include sidebar.html %}
+    <main class="content">
+      <div class="content__inner">
+        {{ content }}
+      </div>
+    </main>
+  </div>
+
+  <script>
+    (function () {
+      var body = document.body;
+      var open = document.querySelector('[data-sidebar-open]');
+      var close = document.querySelector('[data-sidebar-close]');
+      if (open) open.addEventListener('click', function () { body.classList.add('is-sidebar-open'); });
+      if (close) close.addEventListener('click', function () { body.classList.remove('is-sidebar-open'); });
+      document.querySelectorAll('.sidebar a').forEach(function (a) {
+        a.addEventListener('click', function () { body.classList.remove('is-sidebar-open'); });
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,3 +1,11 @@
-_site
-.sass-cache
+_site/
+.sass-cache/
+.jekyll-cache/
 .jekyll-metadata
+Gemfile.lock
+vendor/
+node_modules/
+.DS_Store
+
+# Agent instructions — local only
+AGENTS.md

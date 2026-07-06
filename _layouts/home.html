@@ -1,0 +1,44 @@
+---
+layout: default
+---
+<header class="page-header">
+  <p class="eyebrow">Welcome to</p>
+  <h1 class="page-title">{{ site.title }}</h1>
+  <p class="page-subtitle">{{ site.description }}</p>
+</header>
+
+<section class="home-sections">
+  {% for key in site.sections %}
+    {% assign items = site[key] | sort: 'date' | reverse %}
+    {% case key %}
+      {% when 'ciencia' %}{% assign label = 'Ciencia' %}{% assign icon = '🔬' %}{% assign blurb = 'Notes, papers, and experiments.' %}
+      {% when 'libros' %}{% assign label = 'Libros' %}{% assign icon = '📚' %}{% assign blurb = 'Reviews and highlights.' %}
+      {% when 'notas' %}{% assign label = 'Notas personales' %}{% assign icon = '🗒' %}{% assign blurb = 'Loose thoughts.' %}
+    {% endcase %}
+    <article class="home-section">
+      <a class="home-section__header" href="{{ '/' | append: key | append: '/' | relative_url }}">
+        <span class="home-section__icon">{{ icon }}</span>
+        <div>
+          <h2>{{ label }}</h2>
+          <p>{{ blurb }}</p>
+        </div>
+      </a>
+      <ul class="home-section__list">
+        {% for item in items limit: 4 %}
+          <li>
+            <a href="{{ item.url | relative_url }}">
+              <span class="home-section__item-title">{{ item.title }}</span>
+              {% if item.date %}<time datetime="{{ item.date | date_to_xmlschema }}">{{ item.date | date: "%d %b %Y" }}</time>{% endif %}
+            </a>
+          </li>
+        {% else %}
+          <li class="home-section__empty">No posts yet.</li>
+        {% endfor %}
+      </ul>
+    </article>
+  {% endfor %}
+</section>
+
+<div class="content-body">
+  {{ content }}
+</div>

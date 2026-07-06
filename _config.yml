@@ -1,34 +1,72 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
-
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
 title: Safari Aleatorio
-email: your-email@domain.com
-description: > # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: jekyllrb
-github_username:  jekyll
+description: >-
+  Science, books, and personal notes.
+author: Daniel
+email: bmdaortiz@gmail.com
 
-# Build settings
+baseurl: ""
+url: "https://bmdaort.github.io"
+
 markdown: kramdown
-theme: minima
-gems:
+highlighter: rouge
+permalink: /:collection/:path/
+
+collections:
+  ciencia:
+    output: true
+    permalink: /ciencia/:path/
+    label: Ciencia
+    icon: "🔬"
+  libros:
+    output: true
+    permalink: /libros/:path/
+    label: Libros
+    icon: "📚"
+  notas:
+    output: true
+    permalink: /notas/:path/
+    label: Notas personales
+    icon: "🗒"
+
+defaults:
+  - scope:
+      path: ""
+      type: ciencia
+    values:
+      layout: post
+      section: ciencia
+  - scope:
+      path: ""
+      type: libros
+    values:
+      layout: post
+      section: libros
+  - scope:
+      path: ""
+      type: notas
+    values:
+      layout: post
+      section: notas
+
+# Sidebar order (must match collection keys above)
+sections:
+  - ciencia
+  - libros
+  - notas
+
+plugins:
   - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+sass:
+  style: compressed
+
 exclude:
   - Gemfile
   - Gemfile.lock
+  - README.md
+  - DOCUMENTATION.md
+  - AGENTS.md
+  - vendor
+  - node_modules

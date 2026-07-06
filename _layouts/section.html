@@ -1,0 +1,31 @@
+---
+layout: default
+---
+{% assign items = site[page.section] | sort: 'date' | reverse %}
+{% case page.section %}
+  {% when 'ciencia' %}{% assign label = 'Ciencia' %}{% assign icon = '🔬' %}
+  {% when 'libros' %}{% assign label = 'Libros' %}{% assign icon = '📚' %}
+  {% when 'notas' %}{% assign label = 'Notas personales' %}{% assign icon = '🗒' %}
+{% endcase %}
+
+<header class="page-header">
+  <p class="eyebrow">{{ icon }} Section</p>
+  <h1 class="page-title">{{ label }}</h1>
+  {% if page.description %}<p class="page-subtitle">{{ page.description }}</p>{% endif %}
+</header>
+
+<div class="content-body">{{ content }}</div>
+
+<ul class="post-list">
+  {% for item in items %}
+    <li class="post-list__item">
+      <a href="{{ item.url | relative_url }}">
+        <span class="post-list__title">{{ item.title }}</span>
+        {% if item.date %}<time datetime="{{ item.date | date_to_xmlschema }}">{{ item.date | date: "%d %b %Y" }}</time>{% endif %}
+      </a>
+      {% if item.excerpt %}<p class="post-list__excerpt">{{ item.excerpt | strip_html | truncate: 160 }}</p>{% endif %}
+    </li>
+  {% else %}
+    <li class="post-list__empty">No posts in this section yet.</li>
+  {% endfor %}
+</ul>
