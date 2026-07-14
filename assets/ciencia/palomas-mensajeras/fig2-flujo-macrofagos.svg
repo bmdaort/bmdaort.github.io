@@ -1,0 +1,62 @@
+<svg viewBox="0 0 560 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagrama de flujo: si una célula es positiva para azul de Prusia, tiene morfología de macrófago, marcadores moleculares de macrófago y desaparece con un fármaco que elimina macrófagos, entonces es un macrófago.">
+  <style>
+    text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+    .ink{fill:#37352f}.muted{fill:#787774}
+    .box{fill:#ffffff;stroke:#d8d7d4;stroke-width:1.5}
+    .arrow{stroke:#9b9a97;fill:none;stroke-width:2}
+    .head{fill:#9b9a97}
+    .accentBox{fill:#2e7d5b;stroke:#2e7d5b}
+    .accent{fill:#2e7d5b}.on-accent{fill:#ffffff}
+    @media (prefers-color-scheme:dark){
+      .ink{fill:#e8e6e3}.muted{fill:#9b9a97}
+      .box{fill:#202020;stroke:#3f3f3f}
+      .arrow{stroke:#6f6e6b}.head{fill:#6f6e6b}
+      .accentBox{fill:#2f6f52;stroke:#58c294}
+      .accent{fill:#58c294}.on-accent{fill:#eafff5}
+    }
+  </style>
+
+  <!-- Box 1 -->
+  <rect x="60" y="14" width="440" height="50" rx="10" class="box"/>
+  <text x="280" y="44" class="ink" font-size="14" text-anchor="middle">¿Positiva para azul de Prusia?</text>
+
+  <!-- arrow 1 -->
+  <line x1="280" y1="64" x2="280" y2="92" class="arrow"/>
+  <path d="M280 96 l-5 -8 l10 0 z" class="head"/>
+  <text x="292" y="84" class="accent" font-size="13" font-weight="600">Sí</text>
+
+  <!-- Box 2 -->
+  <rect x="60" y="96" width="440" height="50" rx="10" class="box"/>
+  <text x="280" y="126" class="ink" font-size="14" text-anchor="middle">¿Morfología tipo macrófago?</text>
+
+  <!-- arrow 2 -->
+  <line x1="280" y1="146" x2="280" y2="174" class="arrow"/>
+  <path d="M280 178 l-5 -8 l10 0 z" class="head"/>
+  <text x="292" y="166" class="accent" font-size="13" font-weight="600">Sí</text>
+
+  <!-- Box 3 -->
+  <rect x="60" y="178" width="440" height="62" rx="10" class="box"/>
+  <text x="280" y="203" class="ink" font-size="14" text-anchor="middle">¿Los marcadores moleculares</text>
+  <text x="280" y="223" class="ink" font-size="14" text-anchor="middle">apuntan a macrófago?</text>
+
+  <!-- arrow 3 -->
+  <line x1="280" y1="240" x2="280" y2="268" class="arrow"/>
+  <path d="M280 272 l-5 -8 l10 0 z" class="head"/>
+  <text x="292" y="260" class="accent" font-size="13" font-weight="600">Sí</text>
+
+  <!-- Box 4 -->
+  <rect x="60" y="272" width="440" height="82" rx="10" class="box"/>
+  <text x="280" y="297" class="ink" font-size="14" text-anchor="middle">¿Un fármaco que elimina macrófagos</text>
+  <text x="280" y="317" class="ink" font-size="14" text-anchor="middle">hace desaparecer estas células</text>
+  <text x="280" y="337" class="ink" font-size="14" text-anchor="middle">con hierro?</text>
+
+  <!-- arrow 4 -->
+  <line x1="280" y1="354" x2="280" y2="384" class="arrow"/>
+  <path d="M280 388 l-5 -8 l10 0 z" class="head"/>
+  <text x="292" y="374" class="accent" font-size="13" font-weight="600">Sí</text>
+
+  <!-- Final -->
+  <rect x="120" y="388" width="320" height="58" rx="12" class="accentBox"/>
+  <text x="280" y="416" class="on-accent" font-size="17" font-weight="700" text-anchor="middle">¡Bingo!</text>
+  <text x="280" y="435" class="on-accent" font-size="13" text-anchor="middle">Son macrófagos</text>
+</svg>
